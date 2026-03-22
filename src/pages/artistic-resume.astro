@@ -1,0 +1,69 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { creativeCluster, replicaFooterCredit } from "../data/editorial";
+import type { CreativeResumeSection } from "../data/editorial";
+
+const artisticResume = creativeCluster.artisticResume;
+const artisticResumeSections: CreativeResumeSection[] = artisticResume.sections;
+---
+
+<BaseLayout
+  title="Artistic Resume"
+  description="Artistic resume for Mark Jayson Martinez Farol."
+  page={artisticResume.theme.page}
+  accent={artisticResume.theme.accent}
+>
+  <article class="replica-page creative-cluster-page creative-resume-page">
+    <div class="replica-canvas creative-cluster-page__canvas">
+      <div class="creative-cluster-page__shell">
+        <header class="creative-resume-page__masthead" data-lift>
+          <div class="creative-resume-page__masthead-copy">
+            <p class="creative-page__eyebrow">Artistic Resume</p>
+            <h1 class="creative-resume-page__name">
+              <a href="#summary">{artisticResume.title}</a>
+            </h1>
+          </div>
+          <nav class="creative-resume-page__jump" aria-label="Artistic resume sections">
+            {
+              artisticResumeSections.map((section) => (
+                <a class="creative-resume-page__jump-link" href={`#${section.id}`}>
+                  {section.label}
+                </a>
+              ))
+            }
+          </nav>
+        </header>
+
+        <div class="creative-resume-page__sections">
+          {
+            artisticResumeSections.map((section) => (
+              <section id={section.id} class="creative-resume-page__section" aria-labelledby={`${section.id}-title`}>
+                <div class="creative-resume-page__section-shell">
+                  <header class="creative-resume-page__section-header" data-lift>
+                    <h2 id={`${section.id}-title`} class="creative-resume-page__section-title">{section.label}</h2>
+                    <p class="creative-resume-page__section-intro">{section.intro}</p>
+                  </header>
+
+                  <div class="creative-resume-page__entries">
+                    {
+                      section.entries.map((entry) => (
+                        <article class="creative-resume-entry" data-lift>
+                          <h3 class="creative-resume-entry__title">{entry.title}</h3>
+                          {entry.subtitle && <p class="creative-resume-card__subtitle">{entry.subtitle}</p>}
+                          {entry.meta && <p class="creative-resume-card__meta">{entry.meta}</p>}
+                          {entry.description && <p class="creative-resume-entry__description">{entry.description}</p>}
+                        </article>
+                      ))
+                    }
+                  </div>
+                </div>
+              </section>
+            ))
+          }
+        </div>
+      </div>
+
+      <p class="page-credit page-credit--light">{replicaFooterCredit}</p>
+    </div>
+  </article>
+</BaseLayout>
