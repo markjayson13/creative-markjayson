@@ -5,7 +5,8 @@ import { buildImageCollectionPageStructuredData, socialPreviewImages } from "../
 
 const landingPage = creativeCluster.landing;
 const pageTitle = "Creative";
-const pageDescription = "Creative archive for Mark Jayson Martinez Farol.";
+const pageDescription =
+  "Creative portfolio for Mark Jayson Martinez Farol featuring headshots, performance work, editorial portrait photography, and selected photoshoot galleries.";
 const siteOrigin = Astro.site ?? new URL("https://creative.markjayson.com");
 const pageUrl = new URL(Astro.url.pathname, siteOrigin).toString();
 const landingImages = landingPage.headshotPreviews;
@@ -37,6 +38,10 @@ const structuredData = buildImageCollectionPageStructuredData(pageUrl, pageTitle
           <div class="creative-landing__utility-column" data-lift>
             <section class="creative-landing__headshots" aria-labelledby="creative-headshots-preview-title">
               <p id="creative-headshots-preview-title" class="sr-only">Headshot preview strip</p>
+              <p class="sr-only">
+                Headshot preview gallery for Mark Jayson Martinez Farol with cinematic and studio portrait images that lead to the
+                full headshots archive.
+              </p>
               <div class="creative-landing__headshots-grid">
                 {
                   landingPage.headshotPreviews.map((item, index) => (
@@ -45,11 +50,12 @@ const structuredData = buildImageCollectionPageStructuredData(pageUrl, pageTitle
                         <img
                           class="creative-landing__headshot-image"
                           src={item.src}
-                          alt=""
+                          alt={item.alt}
                           loading={index === 0 ? "eager" : "lazy"}
                           decoding="async"
                           fetchpriority={index === 0 ? "high" : undefined}
                         />
+                        <figcaption class="sr-only">{item.caption}</figcaption>
                       </figure>
                     </a>
                   ))

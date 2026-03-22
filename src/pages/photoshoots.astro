@@ -10,7 +10,8 @@ const photoshootGroups = photoshootsPage.groups.map((group) => ({
   items: group.items as CreativeGalleryItem[],
 }));
 const pageTitle = "Photoshoots";
-const pageDescription = "Categorized photoshoots for Mark Jayson Martinez Farol.";
+const pageDescription =
+  "Editorial, commencement, and Halloween photoshoot galleries for Mark Jayson Martinez Farol with portrait and fashion-oriented creative photography.";
 const siteOrigin = Astro.site ?? new URL("https://creative.markjayson.com");
 const pageUrl = new URL(Astro.url.pathname, siteOrigin).toString();
 const allPhotoshootItems = photoshootGroups.reduce<CreativeGalleryItem[]>(
@@ -78,6 +79,9 @@ const structuredData = buildImageCollectionPageStructuredData(pageUrl, pageTitle
                     <p class="creative-cluster-page__section-label">Series</p>
                     <h2 class="rail-page__group-title">{group.label}</h2>
                     <p class="rail-page__group-intro">{group.intro}</p>
+                    <p class="sr-only">
+                      {group.label} photoshoot gallery for Mark Jayson Martinez Farol featuring {group.items.length} creative images.
+                    </p>
                   </div>
 
                   <div class="creative-gallery creative-gallery--photos creative-photos-page__gallery">
@@ -107,6 +111,7 @@ const structuredData = buildImageCollectionPageStructuredData(pageUrl, pageTitle
                             decoding="async"
                             fetchpriority={index === 0 && group.id === photoshootsPage.defaultId ? "high" : undefined}
                           />
+                          <figcaption class="sr-only">{`${group.label}: ${item.caption}`}</figcaption>
                         </figure>
                       ))
                     }
