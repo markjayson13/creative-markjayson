@@ -208,18 +208,6 @@ export const buildImageCollectionPageStructuredData = (
       image: imageNodes.map((node) => ({
         "@id": String(node["@id"]),
       })),
-      mainEntity: {
-        "@type": "ImageGallery",
-        "@id": `${pageUrl}#gallery`,
-        name: pageName,
-        associatedMedia: imageNodes.map((node) => ({
-          "@type": "ImageObject",
-          "@id": String(node["@id"]),
-          contentUrl: String(node.contentUrl),
-          caption: String(node.caption),
-          description: String(node.description),
-        })),
-      },
     },
     {
       "@context": "https://schema.org",
