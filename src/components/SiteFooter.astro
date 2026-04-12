@@ -19,7 +19,7 @@ const footerIconMarkup: Record<(typeof footerSocialLinks)[number]["icon"], strin
     <div class="site-footer__brand">
       <p class="site-footer__eyebrow">{siteLabel}</p>
       <h2 id="site-footer-title" class="site-footer__title">{profile.fullName}</h2>
-      <p class="site-footer__copyright">© {currentYear} {profile.fullName}</p>
+      <p class="site-footer__copyright" id="license">© {currentYear} {profile.fullName}. All rights reserved.</p>
     </div>
 
     <section class="site-footer__contact" aria-labelledby="site-footer-contact-title">

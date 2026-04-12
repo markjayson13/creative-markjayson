@@ -180,6 +180,8 @@ const buildImageObjectNode = (pageUrl: string, image: IndexableImage, index = 1)
     },
     creditText: profile.name,
     copyrightNotice: profile.name,
+    license: `${canonicalSiteUrl}/#license`,
+    acquireLicensePage: `${canonicalSiteUrl}/#license`,
   };
 };
 
