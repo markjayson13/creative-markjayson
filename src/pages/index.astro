@@ -51,6 +51,8 @@ const structuredData = buildImageCollectionPageStructuredData(pageUrl, pageTitle
                           class="creative-landing__headshot-image"
                           src={item.src}
                           alt={item.alt}
+                          width={item.width}
+                          height={item.height}
                           loading={index === 0 ? "eager" : "lazy"}
                           decoding="async"
                           fetchpriority={index === 0 ? "high" : undefined}
