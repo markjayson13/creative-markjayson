@@ -5,7 +5,7 @@ export const mainSiteUrl = "https://markjayson.com";
 
 const linkedInProfileUrl = "https://www.linkedin.com/in/markjaysonfarol/";
 const backstageProfileUrl = "https://www.backstage.com/tal/mark-jayson-farol/";
-const instagramProfileUrl = "https://www.instagram.com/markjayson13/";
+export const instagramProfileUrl = "https://www.instagram.com/markjayson13/";
 
 export type StructuredDataValue =
   | string
@@ -157,7 +157,7 @@ export const identityPersonStructuredData: StructuredDataNode = {
   alternateName: [profile.name, "Mark Jayson M. Farol"],
   url: canonicalSiteUrl,
   jobTitle: "Actor, singer, performer, and creative storyteller",
-  image: new URL(withBase("/images/creative/headshots/headshot-02.jpeg"), canonicalSiteUrl).toString(),
+  image: new URL(withBase("/images/creative/headshots/mark-jayson-farol-headshot-studio-suit.jpg"), canonicalSiteUrl).toString(),
   homeLocation: {
     "@type": "Place",
     name: profile.location,
@@ -224,17 +224,17 @@ export const buildImageCollectionPageStructuredData = (
 
 export const socialPreviewImages = {
   creativeLanding: {
-    src: withBase("/images/creative/photoshoots/editorials/editorial-02.jpg"),
+    src: withBase("/images/creative/photoshoots/editorials/mark-jayson-farol-editorial-leather-jacket-sunglasses.jpg"),
     alt: "Black-and-white editorial portrait of Mark Jayson Farol.",
   },
   creativeHeadshots: {
-    src: withBase("/images/creative/headshots/headshot-02.jpeg"),
+    src: withBase("/images/creative/headshots/mark-jayson-farol-headshot-studio-suit.jpg"),
     alt: "Studio headshot of Mark Jayson Farol in a dark blazer against a light background.",
     width: 1024,
     height: 1536,
   },
   creativePhotoshoots: {
-    src: withBase("/images/creative/photoshoots/editorials/editorial-02.jpg"),
+    src: withBase("/images/creative/photoshoots/editorials/mark-jayson-farol-editorial-leather-jacket-sunglasses.jpg"),
     alt: "Black-and-white editorial portrait of Mark Jayson Farol in sunglasses and a leather jacket.",
   },
 } satisfies Record<string, SocialPreviewImage>;

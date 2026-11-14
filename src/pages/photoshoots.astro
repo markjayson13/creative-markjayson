@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { creativeCluster, replicaFooterCredit } from "../data/editorial";
-import { buildImageCollectionPageStructuredData, socialPreviewImages } from "../data/site";
+import { buildImageCollectionPageStructuredData, socialPreviewImages, instagramProfileUrl } from "../data/site";
 import type { CreativeGalleryItem } from "../data/editorial";
 
 const photoshootsPage = creativeCluster.photoshoots;
@@ -37,6 +37,9 @@ const structuredData = buildImageCollectionPageStructuredData(pageUrl, pageTitle
             <p class="creative-photos-page__eyebrow">Mark Jayson Farol</p>
             <h1 class="creative-page__title">{photoshootsPage.title}</h1>
             <p class="creative-cluster-page__lead creative-photos-page__lead">{photoshootsPage.lead}</p>
+            <a class="creative-photos-page__instagram" href={instagramProfileUrl} target="_blank" rel="me noreferrer">
+              More photos on Instagram @markjayson13
+            </a>
           </div>
         </header>
 
@@ -107,6 +110,8 @@ const structuredData = buildImageCollectionPageStructuredData(pageUrl, pageTitle
                             ]}
                             src={item.src}
                             alt={item.alt}
+                            width={item.width}
+                            height={item.height}
                             loading={index === 0 && group.id === photoshootsPage.defaultId ? "eager" : "lazy"}
                             decoding="async"
                             fetchpriority={index === 0 && group.id === photoshootsPage.defaultId ? "high" : undefined}
